@@ -1,0 +1,9 @@
+<h2><%= force_user.title %></h2>
+<h2><%= force_user.name %></h2>
+<p>Affiliation: <%= force_user.affiliation %></p>
+<p>Location: <%= force_user.location %></p>
+<p>Lightsaber Color: <%= force_user.lightsaber_color %></p>
+<p>Force Side: <%= force_user.dark_or_light %></p>
+<%= link_to "New", "/force_users/new" %>
+<%= link_to "Edit", "/force_users/#{force_user.id}/edit" %>
+<%= link_to "Delete", "/force_users/#{force_user.id}", method: :delete, data:{confirm: "Are you sure you want to delete this force_user?"} %>

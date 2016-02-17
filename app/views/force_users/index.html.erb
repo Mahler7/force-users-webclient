@@ -1,0 +1,5 @@
+<h1>Force Users</h1>
+
+<% @force_users.each do |force_user| %>
+<%= render partial: "force_users", locals: {force_user: force_user} %>
+<% end %>

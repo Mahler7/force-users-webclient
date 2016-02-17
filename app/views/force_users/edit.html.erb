@@ -1,0 +1,37 @@
+<h1>Edit A Force User</h1>
+
+<%= form_tag "/force_users/#{params[:id]}", method: :patch do %>
+
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, @force_user["title"] %>
+  </div>
+
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, @force_user["name"] %>
+  </div>
+
+  <div>
+    <%= label_tag :affiliation %>
+    <%= text_field_tag :affiliation, @force_user["affiliation"] %>
+  </div>
+
+  <div>
+    <%= label_tag :location %>
+    <%= text_field_tag :location, @force_user["location"] %>
+  </div>
+
+  <div>
+    <%= label_tag :lightsaber_color %>
+    <%= text_field_tag :lightsaber_color, @force_user["lightsaber_color"] %>
+  </div>
+
+  <div>
+    <%= label_tag :dark_or_light %>
+    <%= text_field_tag :dark_or_light, @force_user["dark_or_light"] %>
+  </div>
+
+  <%= submit_tag "Edit Force User" %>
+
+<% end %>
