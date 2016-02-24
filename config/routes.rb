@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+ 
   get '/force_users' => 'force_users#index'
   get '/force_users/new' => 'force_users#new'
   post '/force_users' => 'force_users#create'

@@ -23,7 +23,7 @@ class ForceUser
 
   def self.all
     
-    api_force_users_array = Unirest.get("http://localhost:3000/force_users").body
+    api_force_users_array = Unirest.get("#{ENV['API_BASE_URL']}/force_users", headers:{ "Accept" => "application/json", "X-User-Email" => "#{ENV['API_EMAIL']}", "Authorization" => "Token token=#{ENV['API_KEY']}"}).body
     force_users = []
     
     api_force_users_array.each do |api_force_user|
@@ -35,15 +35,15 @@ class ForceUser
 
   def self.find(id)
 
-    ForceUser.new(Unirest.get("http://localhost:3000/force_users/#{id}").body)
+    ForceUser.new(Unirest.get("#{ENV['API_BASE_URL']}/#{id}", headers:{ "Accept" => "application/json", "X-User-Email" => "#{ENV['API_EMAIL']}", "Authorization" => "Token token=#{ENV['API_KEY']}"}).body)
 
   end
 
   def destroy
 
     Unirest.delete(
-          "http://localhost:3000/force_users/#{id}", 
-          headers:{ "Accept" => "application/json"}
+          "http://localhost:3000/api/v1/force_users/#{id}", 
+          headers:{ "Accept" => "application/json", "X-User-Email" => "yoda@gmail.com", "api_key" => "adoy"}
           ).body
 
   end

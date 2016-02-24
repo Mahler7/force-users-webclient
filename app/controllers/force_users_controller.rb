@@ -13,7 +13,7 @@ class ForceUsersController < ApplicationController
   def create
 
     @force_user = Unirest.post(
-      "http://localhost:3000/force_users.json", 
+      "http://localhost:3000/api/v1/force_users.json", 
       headers:{ "Accept" => "application/json"}, 
       parameters: {
         title: params[:title], 
@@ -45,7 +45,7 @@ class ForceUsersController < ApplicationController
 
   def edit
 
-    @force_user = Unirest.get("http://localhost:3000/force_users/#{params[:id]}").body
+    @force_user = Unirest.get("http://localhost:3000/api/v1/force_users/#{params[:id]}").body
 
   end
 
@@ -73,7 +73,7 @@ class ForceUsersController < ApplicationController
  
 
     flash[:message] = message["message"]
-    redirect_to "/force_users"
+    redirect_to "/api/v1/force_users"
 
   end
 
